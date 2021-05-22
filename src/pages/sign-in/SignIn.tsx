@@ -8,7 +8,6 @@ export const SignIn: React.FC = () => {
       <View style={styles.contentCenter}>
 
         <Text style={styles.title}>Fazer login</Text>
-
         <View style={styles.form}>
           <TextInput
             placeholder="Email"
