@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import Checkbox from 'expo-checkbox';
+import {Ionicons} from '@expo/vector-icons';
 
 export const SignIn: React.FC = () => {
   return (
@@ -8,13 +9,18 @@ export const SignIn: React.FC = () => {
       <View style={styles.contentCenter}>
 
         <Text style={styles.title}>Fazer login</Text>
+
         <View style={styles.form}>
-          <TextInput
-            placeholder="Email"
-            style={styles.emailInput}
-          />
+          <View style={styles.emailWrapper}>
+            <Ionicons name='person' size={24} color='black'/>
+            <TextInput
+              placeholder="Email"
+              style={styles.emailInput}
+            />
+          </View>
           <TextInput
             placeholder="Password"
+            secureTextEntry={true}
             style={styles.emailPassword}
           />
 
@@ -24,11 +30,11 @@ export const SignIn: React.FC = () => {
           </View>
 
           <TouchableOpacity style={styles.signInButton}>
-            <Text>Entrar</Text>
+            <Text style={styles.signButtonText}>Entrar</Text>
           </TouchableOpacity>
-          <Text>Não tem uma conta ainda?</Text>
+          <Text style={styles.haveNoAccount}>Não tem uma conta ainda?</Text>
           <TouchableOpacity style={styles.signUpButton}>
-            <Text>Cadastrar-se</Text>
+            <Text style={styles.signUpButtonText}>Cadastrar-se</Text>
           </TouchableOpacity>
         </View>
 
@@ -58,29 +64,51 @@ const styles = StyleSheet.create({
   form: {
     marginTop: 15,
   },
+  emailWrapper: {
+    flexDirection: 'row',
+  },
   emailInput: {
     borderColor: 'red',
     borderRadius: 4,
     borderWidth: 1,
     padding: 10,
+    paddingLeft: 50,
   },
   emailPassword: {
     borderColor: 'red',
     borderRadius: 4,
     borderWidth: 1,
+    marginTop: 10,
     padding: 10,
   },
   checkboxContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 5,
+  },
+  signButtonText: {
+    color: 'white',
+    textAlign: 'center',
   },
   signInButton: {
-    padding: 10,
+    padding: 15,
+    marginTop: 15,
+    borderRadius: 4,
     backgroundColor: 'red',
   },
+  haveNoAccount: {
+    marginTop: 20,
+    textAlign: 'center',
+  },
+  signUpButtonText: {
+    color: 'red',
+    textAlign: 'center',
+  },
   signUpButton: {
-    padding: 10,
+    padding: 15,
+    marginTop: 10,
     borderWidth: 1,
+    borderRadius: 4,
     borderColor: 'red',
   }
 });
